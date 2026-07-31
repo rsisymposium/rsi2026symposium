@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSI Symposium 2026 Schedule</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px; height: 36px; border-radius: 50%;
+            border-left-color: #4f46e5;
+            animation: spin 1s ease infinite;
+        }
+        section[id] { scroll-margin-top: 10rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900">Research Science Institute Symposium 2026</h1>
+            <p class="mt-2 text-slate-500" id="header-dates">Thursday, August 6 &amp; Friday, August 7, 2026</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Navigation / Filters -->
+            <div class="sticky top-0 bg-slate-50/90 backdrop-blur-lg py-4 z-10 mb-8 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6">
+                <div class="flex flex-col items-center gap-2">
+                    <label for="session-select" class="text-sm font-medium text-slate-700">Jump to Session</label>
+                    <div class="relative w-full max-w-xs sm:w-56">
+                        <select id="session-select" class="block w-full appearance-none bg-white border border-slate-300 text-slate-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 shadow-sm transition"></select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <label for="mentor-select" class="text-sm font-medium text-slate-700">Filter by Mentor</label>
+                    <div class="relative w-full max-w-xs sm:w-56">
+                        <select id="mentor-select" class="block w-full appearance-none bg-white border border-slate-300 text-slate-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 shadow-sm transition"></select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <label for="field-select" class="text-sm font-medium text-slate-700">Filter by Field</label>
+                    <div class="relative w-full max-w-xs sm:w-56">
+                        <select id="field-select" class="block w-full appearance-none bg-white border border-slate-300 text-slate-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 shadow-sm transition"></select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Container -->
+            <div id="schedule-container" class="space-y-16">
+                <div id="loading-state" class="flex flex-col items-center justify-center text-center py-16">
+                    <div class="spinner mb-4"></div>
+                    <p class="text-lg font-medium text-slate-600">Loading schedule...</p>
+                </div>
+                <div id="no-results-message" class="hidden text-center py-16">
+                    <p class="text-lg font-medium text-slate-600">No presentations match the current filters.</p>
+                    <p class="text-sm text-slate-500">Try selecting "All Mentors" / "All Fields".</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ============================================================
+        // CONFIG
+        // ============================================================
+        // Right now the site reads data/schedule.csv, which is generated
+        // from RSI_2026_Schedule.xlsx by scripts/03_export_site_csv.py
+        // (edit the xlsx's Schedule sheet, rerun that script, commit the
+        // refreshed CSV). To switch to a live Google Sheet later:
+        //   1. In Google Sheets: File > Share > Publish to web > pick the
+        //      schedule tab > CSV > Publish. Copy the given URL.
+        //   2. Paste that URL into DATA_SOURCE below.
+        //   3. Keep the sheet's column headers identical to
+        //      data/schedule.csv (date, weekday, block, room, start_time,
+        //      end_time, order, full_name, title, mentor, field) --
+        //      everything else (parsing, grouping, filters, rendering)
+        //      needs no changes.
+        // If the published Google CSV URL ever fails to fetch due to CORS,
+        // set USE_CORS_PROXY to true.
+        const DATA_SOURCE = 'data/schedule.csv';
+        const USE_CORS_PROXY = false;
+        const CORS_PROXY = 'https://corsproxy.io/?';
+
+        const LUNCH_LABEL = 'Lunch Break (12:00 PM – 1:00 PM)';
+        const BLOCK_LABELS = { AM: 'Morning Session', PM: 'Afternoon Session' };
+
+        // Consistent color per field so the same subject reads the same
+        // way everywhere on the page.
+        const FIELD_COLORS = {
+            'Math': 'bg-blue-50 text-blue-700 ring-blue-600/20',
+            'Physics': 'bg-purple-50 text-purple-700 ring-purple-600/20',
+            'Astronomy & Planetary Science': 'bg-indigo-50 text-indigo-700 ring-indigo-600/20',
+            'Computer Science & AI': 'bg-cyan-50 text-cyan-700 ring-cyan-600/20',
+            'Engineering': 'bg-orange-50 text-orange-700 ring-orange-600/20',
+            'Chemistry & Materials': 'bg-amber-50 text-amber-700 ring-amber-600/20',
+            'Biology & Medicine': 'bg-emerald-50 text-emerald-700 ring-emerald-600/20',
+            'Neuroscience & Psychology': 'bg-pink-50 text-pink-700 ring-pink-600/20',
+            'Earth, Ocean & Climate': 'bg-teal-50 text-teal-700 ring-teal-600/20',
+            'Economics & Policy': 'bg-rose-50 text-rose-700 ring-rose-600/20',
+        };
+        const DEFAULT_FIELD_COLOR = 'bg-slate-100 text-slate-600 ring-slate-500/20';
+
+        // ============================================================
+        // SCRIPT
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', loadScheduleData);
+
+        async function loadScheduleData() {
+            const scheduleContainer = document.getElementById('schedule-container');
+            const loadingState = document.getElementById('loading-state');
+
+            const fetchUrl = USE_CORS_PROXY ? `${CORS_PROXY}${DATA_SOURCE}` : DATA_SOURCE;
+
+            try {
+                const response = await fetch(fetchUrl, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Network response was not ok. Status: ${response.status}`);
+
+                const csvText = await response.text();
+                if (!csvText) throw new Error('CSV data is empty. Check the data source.');
+
+                const talks = parseCSV(csvText);
+                if (!talks) throw new Error('Failed to parse CSV data.');
+
+                const days = groupTalks(talks);
+
+                loadingState.style.display = 'none';
+                renderSessionNav(days);
+                renderMentorFilter(talks);
+                renderFieldFilter(talks);
+                renderSchedule(days, scheduleContainer);
+                wireFilters();
+
+            } catch (error) {
+                console.error('Error loading or parsing schedule data:', error);
+                let msg = 'Failed to load the schedule. Please check the data source and CSV format.';
+                if (error.message.includes('Network')) {
+                    msg = 'Failed to fetch the schedule file. If viewing this locally, serve it with a local web server (opening index.html directly from disk blocks the fetch).';
+                }
+                loadingState.innerHTML = `<p class="text-lg font-medium text-red-600 text-center">${msg}</p><p class="text-sm text-slate-500 mt-2 px-4 text-center">Open the browser console (F12) for technical details.</p>`;
+            }
+        }
+
+        /** Robust CSV parser: handles quoted fields with commas / escaped quotes. */
+        function parseCSV(text) {
+            try {
+                const lines = text.trim().split(/\r?\n/).filter(line => line.trim());
+                if (lines.length < 2) return [];
+                const headers = lines.shift().split(',').map(h => h.trim());
+
+                return lines.map(line => {
+                    const values = [];
+                    let currentVal = '';
+                    let inQuotes = false;
+                    for (let i = 0; i < line.length; i++) {
+                        const char = line[i];
+                        if (char === '"') {
+                            if (inQuotes && line[i + 1] === '"') { currentVal += '"'; i++; }
+                            else { inQuotes = !inQuotes; }
+                        } else if (char === ',' && !inQuotes) {
+                            values.push(currentVal); currentVal = '';
+                        } else {
+                            currentVal += char;
+                        }
+                    }
+                    values.push(currentVal);
+                    const entry = {};
+                    headers.forEach((header, i) => { entry[header] = values[i] ? values[i].trim() : ''; });
+                    return entry;
+                });
+            } catch (e) {
+                console.error('CSV Parsing Error:', e);
+                return null;
+            }
+        }
+
+        /** date -> { weekday, block: { AM: {room: [talks]}, PM: {room: [talks]} } } */
+        function groupTalks(talks) {
+            const days = {};
+            talks.forEach(t => {
+                if (!t.date || !t.block || !t.room) return;
+                if (!days[t.date]) days[t.date] = { weekday: t.weekday, blocks: { AM: {}, PM: {} } };
+                const roomMap = days[t.date].blocks[t.block];
+                if (!roomMap[t.room]) roomMap[t.room] = [];
+                roomMap[t.room].push(t);
+            });
+            for (const date in days) {
+                for (const block of ['AM', 'PM']) {
+                    for (const room in days[date].blocks[block]) {
+                        days[date].blocks[block][room].sort((a, b) => Number(a.order) - Number(b.order));
+                    }
+                }
+            }
+            return days;
+        }
+
+        function sessionId(date, block, room) {
+            return `session-${date}-${block}-${room}`.replace(/[^a-zA-Z0-9-]/g, '_');
+        }
+
+        function renderSessionNav(days) {
+            const select = document.getElementById('session-select');
+            select.innerHTML = `<option value="">Go to a session...</option>`;
+            Object.keys(days).sort().forEach(date => {
+                const { weekday, blocks } = days[date];
+                ['AM', 'PM'].forEach(block => {
+                    Object.keys(blocks[block]).sort().forEach(room => {
+                        if (!blocks[block][room].length) return;
+                        const option = document.createElement('option');
+                        option.value = `#${sessionId(date, block, room)}`;
+                        option.textContent = `${weekday} ${BLOCK_LABELS[block]} · Room ${room}`;
+                        select.appendChild(option);
+                    });
+                });
+            });
+            select.addEventListener('change', (event) => {
+                const targetId = event.target.value;
+                if (targetId) {
+                    document.getElementById(targetId.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+                    event.target.selectedIndex = 0;
+                }
+            });
+        }
+
+        function renderMentorFilter(talks) {
+            const select = document.getElementById('mentor-select');
+            const allMentorInstances = talks.flatMap(t => (t.mentor || '').split(',').map(name => name.trim()));
+            const uniqueMentors = [...new Set(allMentorInstances)].filter(Boolean).sort();
+            select.innerHTML = `<option value="all">All Mentors</option>`;
+            uniqueMentors.forEach(name => {
+                const option = document.createElement('option');
+                option.value = name;
+                option.textContent = name;
+                select.appendChild(option);
+            });
+        }
+
+        function renderFieldFilter(talks) {
+            const select = document.getElementById('field-select');
+            const uniqueFields = [...new Set(talks.map(t => t.field).filter(Boolean))].sort();
+            select.innerHTML = `<option value="all">All Fields</option>`;
+            uniqueFields.forEach(field => {
+                const option = document.createElement('option');
+                option.value = field;
+                option.textContent = field;
+                select.appendChild(option);
+            });
+        }
+
+        function wireFilters() {
+            document.getElementById('mentor-select').addEventListener('change', applyFilters);
+            document.getElementById('field-select').addEventListener('change', applyFilters);
+        }
+
+        function applyFilters() {
+            const mentorVal = document.getElementById('mentor-select').value;
+            const fieldVal = document.getElementById('field-select').value;
+            const noResultsMessage = document.getElementById('no-results-message');
+            let totalVisible = 0;
+
+            document.querySelectorAll('.room-block').forEach(roomBlock => {
+                let visibleInRoom = 0;
+                roomBlock.querySelectorAll('.presentation-card').forEach(card => {
+                    const mentorMatch = mentorVal === 'all' || (card.dataset.mentor || '').includes(mentorVal);
+                    const fieldMatch = fieldVal === 'all' || card.dataset.field === fieldVal;
+                    const visible = mentorMatch && fieldMatch;
+                    card.style.display = visible ? 'flex' : 'none';
+                    if (visible) visibleInRoom++;
+                });
+                roomBlock.style.display = visibleInRoom > 0 ? '' : 'none';
+                totalVisible += visibleInRoom;
+            });
+
+            document.querySelectorAll('.block-section').forEach(blockSection => {
+                const anyVisible = [...blockSection.querySelectorAll('.room-block')]
+                    .some(rb => rb.style.display !== 'none');
+                blockSection.style.display = anyVisible ? '' : 'none';
+            });
+
+            document.querySelectorAll('.day-section').forEach(daySection => {
+                const anyVisible = [...daySection.querySelectorAll('.room-block')]
+                    .some(rb => rb.style.display !== 'none');
+                daySection.style.display = anyVisible ? '' : 'none';
+            });
+
+            noResultsMessage.style.display = totalVisible === 0 ? 'block' : 'none';
+        }
+
+        function formatDate(dateStr) {
+            const [y, m, d] = dateStr.split('-').map(Number);
+            return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        function talkCard(t) {
+            const fieldClass = FIELD_COLORS[t.field] || DEFAULT_FIELD_COLOR;
+            return `
+                <div class="presentation-card bg-white rounded-lg shadow-md p-6 transition hover:shadow-xl hover:-translate-y-1 flex flex-col" data-mentor="${t.mentor}" data-field="${t.field}">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <p class="font-semibold text-slate-500 text-sm">${t.start_time} – ${t.end_time}</p>
+                        <span class="shrink-0 inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset ${fieldClass}">${t.field || 'Other'}</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-indigo-600 mb-2 flex-grow">${t.title || 'No Title'}</h3>
+                    <div>
+                        <p class="font-semibold text-slate-800">${t.full_name || 'No Name'}</p>
+                        <p class="text-sm text-slate-500">Mentor: ${t.mentor || 'N/A'}</p>
+                    </div>
+                </div>`;
+        }
+
+        function roomBlockHTML(date, block, room, talks) {
+            if (!talks || !talks.length) return '';
+            return `
+                <div class="room-block mb-10" id="${sessionId(date, block, room)}">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                        Room ${room}
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${talks.map(talkCard).join('')}
+                    </div>
+                </div>`;
+        }
+
+        function blockSectionHTML(date, block, roomMap) {
+            const rooms = Object.keys(roomMap).sort();
+            const roomsHTML = rooms.map(room => roomBlockHTML(date, block, room, roomMap[room])).join('');
+            if (!roomsHTML.trim()) return '';
+            return `
+                <div class="block-section mb-12">
+                    <h2 class="text-2xl font-semibold text-slate-900 border-b border-slate-200 pb-3 mb-6">${BLOCK_LABELS[block]}</h2>
+                    ${roomsHTML}
+                </div>`;
+        }
+
+        function renderSchedule(days, container) {
+            const dates = Object.keys(days).sort();
+            if (dates.length === 0) {
+                container.innerHTML = `<p class="text-center text-slate-500">No presentations found.</p>`;
+                return;
+            }
+
+            dates.forEach(date => {
+                const { weekday, blocks } = days[date];
+                const daySection = document.createElement('section');
+                daySection.className = 'day-section';
+                daySection.id = `day-${date}`;
+
+                const amHTML = blockSectionHTML(date, 'AM', blocks.AM);
+                const pmHTML = blockSectionHTML(date, 'PM', blocks.PM);
+                const lunchHTML = (amHTML && pmHTML) ? `
+                    <div class="flex items-center gap-4 my-10">
+                        <div class="flex-grow h-px bg-slate-200"></div>
+                        <span class="text-sm font-medium text-slate-500 whitespace-nowrap">${LUNCH_LABEL}</span>
+                        <div class="flex-grow h-px bg-slate-200"></div>
+                    </div>` : '';
+
+                daySection.innerHTML = `
+                    <div class="pb-4 mb-8 border-b-2 border-indigo-100">
+                        <h2 class="text-3xl font-bold text-slate-900">${weekday}</h2>
+                        <p class="text-slate-500">${formatDate(date)}</p>
+                    </div>
+                    ${amHTML}
+                    ${lunchHTML}
+                    ${pmHTML}
+                `;
+                container.appendChild(daySection);
+            });
+        }
+    </script>
+</body>
+</html>
