@@ -5,7 +5,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,AM,32-124,9:48 AM,10:04 AM,4,Lincoln Liu,Heat Evolution on Graphs,Alexander McWeeney,Math
 2026-08-06,Thursday,AM,32-124,10:04 AM,10:20 AM,5,Tony Lu,Asymptotics for Curve Shortening Flow with Boundary,Alexander McWeeney,Math
 2026-08-06,Thursday,AM,32-124,10:20 AM,10:36 AM,6,Michael Luo,Resolving a Conjecture on Stack-Sorting,Ryota Inagaki,Math
-2026-08-06,Thursday,AM,32-124,10:36 AM,10:52 AM,7,Sirius Sun,(Title TBD),Ryota Inagaki,Math
+2026-08-06,Thursday,AM,32-124,10:36 AM,10:52 AM,7,Sirius Sun,Critical Groups of Signed Subdivided Wheels,Ryota Inagaki,Math
 2026-08-06,Thursday,AM,32-124,10:52 AM,11:08 AM,8,Nikola Veselinov,On Supersingular Isogeny Graphs of Drinfeld Modules,Ayan Nath,Math
 2026-08-06,Thursday,AM,32-124,11:08 AM,11:24 AM,9,Timothy Chen,Open Cases of the Colmez Conjecture,Ayan Nath,Math
 2026-08-06,Thursday,AM,32-141,9:00 AM,9:16 AM,1,Riya Mehrotra,Simplified Volume Formulas for Tetrahedron by Edge-length Symmetry Class,Prof. Eric Grinberg,Math
@@ -14,7 +14,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,AM,32-141,9:48 AM,10:04 AM,4,Asher Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,Dr. Howard Chen,Physics
 2026-08-06,Thursday,AM,32-141,10:04 AM,10:20 AM,5,Azaria Tsegaye,Observing Landau Levels in Simulated Strained Graphene,"Prof. Jenny Hoffman, Sarah Ziegler",Physics
 2026-08-06,Thursday,AM,32-141,10:20 AM,10:36 AM,6,Dhruv Jain,"Structure Analysis using Partial Grotrian Diagram Construction and Isotope-Shift Systematics of Pa I,II,IV,V and Statistical Synthesis of Comagnetometer Constants",Dr. Prajwal T. Mohan Murthy,Physics
-2026-08-06,Thursday,AM,32-141,10:36 AM,10:52 AM,7,Lluc Simon,(Title TBD),Prof. Vladan Vuletic,Physics
+2026-08-06,Thursday,AM,32-141,10:36 AM,10:52 AM,7,Lluc Simon,Hybrid controls strategy for Automatic Laser Beam Alignment,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,AM,32-141,10:52 AM,11:08 AM,8,Mikołaj Stefaniak,Optical pulse shaping for quantum-enhanced clocks,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,AM,32-141,11:08 AM,11:24 AM,9,Miguel Shim,Information Flow in Self Organizing Systems,Ashu Tripathi,Physics
 2026-08-06,Thursday,AM,32-141,11:24 AM,11:40 AM,10,Sylvia Lee,Life is a Game: Learning Dynamical Systems with Neural Cellular Automata,Ashu Tripathi,Physics
@@ -52,7 +52,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,PM,32-155,2:04 PM,2:20 PM,5,Pavan Subramani,The computational conversion of a singular apo structure to an ensemble of holo structures for more accurate molecular docking,Dr. Mrinal Shekhar,Chemistry & Materials
 2026-08-07,Friday,AM,32-124,9:00 AM,9:16 AM,1,Abigail Qi,Optimization of a Yeast-Based High-Throughput Screening Platform to Identify PfPDEγ Inhibitor Candidates,Prof. Charles Hoffman,Biology & Medicine
 2026-08-07,Friday,AM,32-124,9:16 AM,9:32 AM,2,Luke Itomura,Yeast-Based High-Throughput Screening for _Plasmodium falciparum_ PDEα Inhibitor Discovery,Prof. Charles Hoffman,Biology & Medicine
-2026-08-07,Friday,AM,32-124,9:32 AM,9:48 AM,3,Ahmed Sultan,Characterizing Myo15-Cre Recombination in Cochlear Hair Cells to Validate Disease Models for Usher Syndrome Type 1F Gene Therapy​,Dr. Artur A. Indzhykulian,Biology & Medicine
+2026-08-07,Friday,AM,32-124,9:32 AM,9:48 AM,3,Ahmed Sultan,Characterizing Myo15-Cre Recombination in Cochlear Hair Cells to Validate Disease Models for Usher Syndrome Type 1F Gene Therapy,Dr. Artur A. Indzhykulian,Biology & Medicine
 2026-08-07,Friday,AM,32-124,9:48 AM,10:04 AM,4,Alejandra Stephanie Perry,Critical Windows for Neuromodulatory Recovery: Reversible UNC-31 Depletion in Caenorhabditis elegans Development,Prof. Vivek Venkatachalam,Biology & Medicine
 2026-08-07,Friday,AM,32-124,10:04 AM,10:20 AM,5,Ferris Li,Building a Machine Learning Model to Track Many C. elegans Worms Simultaneously and Resolve Collisions,Prof. Vivek Venkatachalam,Computer Science & AI
 2026-08-07,Friday,AM,32-124,10:20 AM,10:36 AM,6,Mahi Kohli,Worming Our Way Out: Analyzing How Developmental Exposure to UNC-31 Degradation and TIR1 affect brain dynamics of C. elegans,Prof. Vivek Venkatachalam,Biology & Medicine
@@ -62,7 +62,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,AM,32-141,9:48 AM,10:04 AM,4,Ipek Zeynioğlu,Efficient Binding Free Energy Estimation through Conformational Sampling of Intermediate States,Prof. Manolis Kellis,Chemistry & Materials
 2026-08-07,Friday,AM,32-141,10:04 AM,10:20 AM,5,Tristan Sun,Comorbidity-shaped cell states in Alzheimer’s disease: a single-nucleus dissection of 15 clinical phenotypes,Prof. Manolis Kellis,Biology & Medicine
 2026-08-07,Friday,AM,32-141,10:20 AM,10:36 AM,6,Álvaro Daniel Villafuerte González,Towards Scaling Laws For Long-Horizon Software Engineering Agents,Prof. Manolis Kellis,Computer Science & AI
-2026-08-07,Friday,AM,32-141,10:36 AM,10:52 AM,7,Alexis Cho,(Title TBD),"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
+2026-08-07,Friday,AM,32-141,10:36 AM,10:52 AM,7,Alexis Cho,Interactions of lipid droplets and Them1-containing condensates to regulate metabolism,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 2026-08-07,Friday,AM,32-141,10:52 AM,11:08 AM,8,Hannah Thomas,The Role of Them1 in Metabolic Gene Regulation,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 2026-08-07,Friday,AM,32-141,11:08 AM,11:24 AM,9,Amritha Praveen,Analyzing the Correlation of SBayesRC Calculated Weights for Polygenic Risk Scores and Body Mass Index,Dr. Buu Truong,Biology & Medicine
 2026-08-07,Friday,AM,32-155,9:00 AM,9:16 AM,1,Cassidy Stocker,Effect of ZAP70 Mutations on CAR T-Cell Effectiveness Targeting GD2 in Brain Tumors,Dr. Robbie G. Majzner,Biology & Medicine

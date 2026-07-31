@@ -1,11 +1,11 @@
 kerb,full_name,first_pron,last_pron,email,title,mentor,field
 aaru0302,Aaryan Patel,AR-ee-un,puh-TELL,aaru0302@mit.edu,TailSeeker: Optimizing Molecular Structure Generation for Fibrodysplasia Ossificans Progressiva,Prof. Gil Alterovitz,Computer Science & AI
 abihqi,Abigail Qi,Abigail,CHEE,abihqi@mit.edu,Optimization of a Yeast-Based High-Throughput Screening Platform to Identify PfPDEγ Inhibitor Candidates,Prof. Charles Hoffman,Biology & Medicine
-a_sultan,Ahmed Sultan,AH-med,SUL-tun,a_sultan@mit.edu,Characterizing Myo15-Cre Recombination in Cochlear Hair Cells to Validate Disease Models for Usher Syndrome Type 1F Gene Therapy​,Dr. Artur A. Indzhykulian,Biology & Medicine
+a_sultan,Ahmed Sultan,AH-med,SUL-tun,a_sultan@mit.edu,Characterizing Myo15-Cre Recombination in Cochlear Hair Cells to Validate Disease Models for Usher Syndrome Type 1F Gene Therapy,Dr. Artur A. Indzhykulian,Biology & Medicine
 asperry,Alejandra Stephanie Perry,ah-leh-HAHN-dra STEH-fah-NEE,PAIR-ee,asperry@mit.edu,Critical Windows for Neuromodulatory Recovery: Reversible UNC-31 Depletion in Caenorhabditis elegans Development,Prof. Vivek Venkatachalam,Biology & Medicine
 alej0,Alejandro Mayorga,ah-leh-HAHN-dro,my-OR-ga,alej0@mit.edu,Liquid Foundation Models as Medical Assistants,Dr. Bo Wu,Computer Science & AI
 alexren,Alex Ren,AL-ex,REN,alexren@mit.edu,Investigating cognitive decline in HIV,Prof. Manolis Kellis,Biology & Medicine
-alexicho,Alexis Cho,ah-LEX-is,CHOH,alexicho@mit.edu,(Title TBD),"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
+alexicho,Alexis Cho,ah-LEX-is,CHOH,alexicho@mit.edu,Interactions of lipid droplets and Them1-containing condensates to regulate metabolism,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 amogh28,Amogh Dattatri,ah-MOHG,DAH-tah-tree,amogh28@mit.edu,Dissecting the effects of non-coding genetic variation on neuropsychiatric disorder susceptibility,Prof. Manolis Kellis,Biology & Medicine
 amritha9,Amritha Praveen,um-REE-tha,pra-VEEN,amritha9@mit.edu,Analyzing the Correlation of SBayesRC Calculated Weights for Polygenic Risk Scores and Body Mass Index,Dr. Buu Truong,Biology & Medicine
 minkyujo,Andy Jo,AN-dee,JOH,minkyujo@mit.edu,Affine-Normalized Geometry of Protein Ensembles,Prof. Gil Alterovitz,Biology & Medicine
@@ -52,7 +52,7 @@ leobart,Leonardo Bartoccini,LEE-oh-nardo,bar-toh-CHEE-nee,leobart@mit.edu,Learni
 leyug,Leyu Girma,Lee-yoo,Gurr-ma,leyug@mit.edu,Explicit Free Resolutions for Central Quotients of Cyclic Amalgams,Dr. Sean Carroll,Math
 lillieli,Lillie Lin Li,LIL-ee Lynn,LEE,lillieli@mit.edu,Neptunian Ridge around faint stars,Katharine Hesse,Astronomy & Planetary Science
 lliu320,Lincoln Liu,LINK-un,LYOO,lliu320@mit.edu,Heat Evolution on Graphs,Alexander McWeeney,Math
-lluc,Lluc Simon,LYOOK,SEE-mon,lluc@mit.edu,(Title TBD),Prof. Vladan Vuletic,Physics
+lluc,Lluc Simon,LYOOK,SEE-mon,lluc@mit.edu,Hybrid controls strategy for Automatic Laser Beam Alignment,Prof. Vladan Vuletic,Physics
 lwduran,Logan Duran,LOH-gun,doo-RAHN,lwduran@mit.edu,Effects of material and surface chemistry in heat exchanger,Prof. Koroush Shirvan,Engineering
 lucichen,Lucia Chen,loo-SEE-ah,CHEN,lucichen@mit.edu,Understanding the Rules of Gene Perturbation Responses,Dr. Sumaiya Nazeen,Biology & Medicine
 litomura,Luke Itomura,LOOK,ee-toh-MOO-rah,litomura@mit.edu,Yeast-Based High-Throughput Screening for _Plasmodium falciparum_ PDEα Inhibitor Discovery,Prof. Charles Hoffman,Biology & Medicine
@@ -83,7 +83,7 @@ selenem,Selene Manzo,seh-LEEN (English) or seh-LEE-neh (Spanish),MAHN-zoh,selene
 shadenfm,Shaden Alharbi,SHAH-den,al-HAR-bee,shadenfm@mit.edu,Characterization of Nanobody Binding to HIV-1 Capsid-Like Particles via Biolayer Interferometry,Dr. Ky Lowenhaupt,Biology & Medicine
 shrivali,Shrivali Gupta,shrih-VUH-lee,GOOP-tah,shrivali@mit.edu,Examining the Relationship Between Executive Function and Behavioural Outcomes in Children,Prof. John D. E. Gabrieli,Neuroscience & Psychology
 siddhik,Siddhi Kochar,SID-hee,KOH-char,siddhik@mit.edu,Constraints on Cosmic Reionization and the Thomson Optical Depth via the Population III.1 Flash Model,Dr. James Sullivan,Astronomy & Planetary Science
-sirius_s,Sirius Sun,SEER-ee-us,SUN,sirius_s@mit.edu,(Title TBD),Ryota Inagaki,Math
+sirius_s,Sirius Sun,SEER-ee-us,SUN,sirius_s@mit.edu,Critical Groups of Signed Subdivided Wheels,Ryota Inagaki,Math
 sofia937,Sofia Passos,soh-FEE-ah,PAH-sohs,sofia937@mit.edu,Predicted glycolytic reprogramming in a microglial substate across neurodegenerative diseases.,Dr. Sudeshna Das,Biology & Medicine
 sophiawz,Sophia Zhao,soh-FEE-ah,JOW,sophiawz@mit.edu,Reachability-Based Path Planning Across Autonomous Ocean Vehicles Platforms,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 sowmya44,Sowmya Sankaran,SOWM-yah,SAHN-kah-run,sowmya44@mit.edu,The Talking Risk Calculator: An Agentic Pipeline for Multi-Factor Cancer Risk Assessment,"Dr. Cong Liu, Dr. Kamalakkannan Ravi",Computer Science & AI
