@@ -103,8 +103,21 @@
         const USE_CORS_PROXY = false;
         const CORS_PROXY = 'https://corsproxy.io/?';
 
-        const LUNCH_LABEL = 'Lunch Break (12:00 PM – 1:00 PM)';
-        const BLOCK_LABELS = { AM: 'Morning Session', PM: 'Afternoon Session' };
+        // The real block structure mentors were scheduled against: 4 blocks
+        // Thursday, 2 Friday (Friday ends at noon). Keep this in sync with
+        // BLOCKS / BREAK_AFTER in scripts/lib_scheduling.py if either changes.
+        const BLOCKS_BY_DATE = {
+            '2026-08-06': [
+                { code: 'T1', label: 'Block 1', time: '9:00 AM – 10:30 AM', breakAfter: 'Break (10:30 AM – 11:00 AM)' },
+                { code: 'T2', label: 'Block 2', time: '11:00 AM – 12:30 PM', breakAfter: 'Lunch Break (12:30 PM – 1:15 PM)' },
+                { code: 'T3', label: 'Block 3', time: '1:15 PM – 2:45 PM', breakAfter: 'Break (2:45 PM – 3:15 PM)' },
+                { code: 'T4', label: 'Block 4', time: '3:15 PM – 4:45 PM', breakAfter: null },
+            ],
+            '2026-08-07': [
+                { code: 'F1', label: 'Block 1', time: '9:00 AM – 10:30 AM', breakAfter: 'Break (10:30 AM – 11:00 AM)' },
+                { code: 'F2', label: 'Block 2', time: '11:00 AM – 12:00 PM', breakAfter: null },
+            ],
+        };
 
         // Consistent color per field so the same subject reads the same
         // way everywhere on the page.
@@ -195,18 +208,19 @@
             }
         }
 
-        /** date -> { weekday, block: { AM: {room: [talks]}, PM: {room: [talks]} } } */
+        /** date -> { weekday, blocks: { [blockCode]: {room: [talks]} } } */
         function groupTalks(talks) {
             const days = {};
             talks.forEach(t => {
                 if (!t.date || !t.block || !t.room) return;
-                if (!days[t.date]) days[t.date] = { weekday: t.weekday, blocks: { AM: {}, PM: {} } };
+                if (!days[t.date]) days[t.date] = { weekday: t.weekday, blocks: {} };
+                if (!days[t.date].blocks[t.block]) days[t.date].blocks[t.block] = {};
                 const roomMap = days[t.date].blocks[t.block];
                 if (!roomMap[t.room]) roomMap[t.room] = [];
                 roomMap[t.room].push(t);
             });
             for (const date in days) {
-                for (const block of ['AM', 'PM']) {
+                for (const block in days[date].blocks) {
                     for (const room in days[date].blocks[block]) {
                         days[date].blocks[block][room].sort((a, b) => Number(a.order) - Number(b.order));
                     }
@@ -224,12 +238,13 @@
             select.innerHTML = `<option value="">Go to a session...</option>`;
             Object.keys(days).sort().forEach(date => {
                 const { weekday, blocks } = days[date];
-                ['AM', 'PM'].forEach(block => {
-                    Object.keys(blocks[block]).sort().forEach(room => {
-                        if (!blocks[block][room].length) return;
+                (BLOCKS_BY_DATE[date] || []).forEach(({ code, label }) => {
+                    const roomMap = blocks[code] || {};
+                    Object.keys(roomMap).sort().forEach(room => {
+                        if (!roomMap[room].length) return;
                         const option = document.createElement('option');
-                        option.value = `#${sessionId(date, block, room)}`;
-                        option.textContent = `${weekday} ${BLOCK_LABELS[block]} · Room ${room}`;
+                        option.value = `#${sessionId(date, code, room)}`;
+                        option.textContent = `${weekday} ${label} · Room ${room}`;
                         select.appendChild(option);
                     });
                 });
@@ -342,13 +357,23 @@
                 </div>`;
         }
 
-        function blockSectionHTML(date, block, roomMap) {
+        function breakBannerHTML(label) {
+            return `
+                <div class="flex items-center gap-4 my-10">
+                    <div class="flex-grow h-px bg-slate-200"></div>
+                    <span class="text-sm font-medium text-slate-500 whitespace-nowrap">${label}</span>
+                    <div class="flex-grow h-px bg-slate-200"></div>
+                </div>`;
+        }
+
+        function blockSectionHTML(date, code, label, time, roomMap) {
             const rooms = Object.keys(roomMap).sort();
-            const roomsHTML = rooms.map(room => roomBlockHTML(date, block, room, roomMap[room])).join('');
+            const roomsHTML = rooms.map(room => roomBlockHTML(date, code, room, roomMap[room])).join('');
             if (!roomsHTML.trim()) return '';
             return `
                 <div class="block-section mb-12">
-                    <h2 class="text-2xl font-semibold text-slate-900 border-b border-slate-200 pb-3 mb-6">${BLOCK_LABELS[block]}</h2>
+                    <h2 class="text-2xl font-semibold text-slate-900 border-b border-slate-200 pb-3 mb-2">${label}</h2>
+                    <p class="text-sm text-slate-500 mb-6">${time}</p>
                     ${roomsHTML}
                 </div>`;
         }
@@ -366,23 +391,19 @@
                 daySection.className = 'day-section';
                 daySection.id = `day-${date}`;
 
-                const amHTML = blockSectionHTML(date, 'AM', blocks.AM);
-                const pmHTML = blockSectionHTML(date, 'PM', blocks.PM);
-                const lunchHTML = (amHTML && pmHTML) ? `
-                    <div class="flex items-center gap-4 my-10">
-                        <div class="flex-grow h-px bg-slate-200"></div>
-                        <span class="text-sm font-medium text-slate-500 whitespace-nowrap">${LUNCH_LABEL}</span>
-                        <div class="flex-grow h-px bg-slate-200"></div>
-                    </div>` : '';
+                const blockDefs = BLOCKS_BY_DATE[date] || [];
+                const bodyHTML = blockDefs.map(({ code, label, time, breakAfter }) => {
+                    const sectionHTML = blockSectionHTML(date, code, label, time, blocks[code] || {});
+                    if (!sectionHTML) return '';
+                    return sectionHTML + (breakAfter ? breakBannerHTML(breakAfter) : '');
+                }).join('');
 
                 daySection.innerHTML = `
                     <div class="pb-4 mb-8 border-b-2 border-indigo-100">
                         <h2 class="text-3xl font-bold text-slate-900">${weekday}</h2>
                         <p class="text-slate-500">${formatDate(date)}</p>
                     </div>
-                    ${amHTML}
-                    ${lunchHTML}
-                    ${pmHTML}
+                    ${bodyHTML}
                 `;
                 container.appendChild(daySection);
             });

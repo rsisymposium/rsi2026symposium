@@ -5,23 +5,25 @@ Two sheets:
   - "Data": one row per student (name, title, mentor, field, pronunciation,
     email). This is a lookup table, not meant to be reformatted.
   - "Schedule": a timetable grid -- one row per time slot, one column-group
-    per room (concurrent rooms side by side). You type/change a student's
-    name in a room's Name cell; the Field/Title/Mentor cells next to it are
-    formulas (VLOOKUP into Data) and update automatically. Reordering who
-    presents when is just cutting/pasting names between cells.
+    per room (concurrent rooms side by side), one section per block (T1-T4
+    Thursday, F1-F2 Friday -- see lib_scheduling.py for why the day is
+    shaped this way). You type/change a student's name in a room's Name
+    cell; the Field/Title/Mentor cells next to it are formulas (VLOOKUP
+    into Data) and update automatically.
 
-The initial Name cells are pre-filled using the same mentor+field-aware
-packing heuristic as before (see lib_scheduling.py), as a draft to hand-edit
-from -- not a final answer. Feel free to drag names around; the formulas
-will keep up.
+Initial Name cells are pre-filled using the mentor-preference-aware
+placement in lib_scheduling.py (MENTOR_BLOCK_OVERRIDES etc.) -- a draft
+reflecting the mentor scheduling-preferences form, not a final answer. Feel
+free to drag names around; the formulas will keep up.
 
 After hand-editing the Schedule sheet, run 03_export_site_csv.py to refresh
-data/schedule.csv, which is what index.html actually reads.
+docs/data/schedule.csv, which is what docs/index.html actually reads.
 
 Rerun this script only if you want to throw away hand-edits and regenerate
-a fresh algorithmic draft (e.g. the roster changed substantially).
+a fresh placement draft (e.g. the roster or preference data changed a lot).
 """
 import csv
+from datetime import datetime
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -31,8 +33,8 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 from lib_scheduling import (
-    BLOCK_LABELS, BLOCKS, DAYS, FIELD_COLORS_HEX, LUNCH_LABEL, ROOMS,
-    SECTION_CAPACITY, build_mentor_blocks, pack, slot_times,
+    BLOCK_BY_CODE, BLOCKS, BREAK_AFTER, DAYS, FIELD_COLORS_HEX, ROOMS, pack,
+    slot_times,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -41,14 +43,13 @@ OUT_PATH = ROOT / "RSI_2026_Schedule.xlsx"
 
 DATA_HEADERS = ["Full Name", "Title", "Mentor", "Field", "First Pron", "Last Pron", "Email", "Kerb"]
 
-# Schedule-sheet column layout: Time, then 4 columns per room (Name/Field/Title/Mentor).
 ROOM_COL_START = {room: 2 + 4 * i for i, room in enumerate(ROOMS)}  # 32-124->B, 32-141->F, 32-155->J
 SUBHEADERS = ["Name", "Field", "Title", "Mentor"]
 
 HEADER_FILL = PatternFill("solid", fgColor="4F46E5")
 DAY_FILL = PatternFill("solid", fgColor="1E293B")
 BLOCK_FILL = PatternFill("solid", fgColor="E2E8F0")
-LUNCH_FILL = PatternFill("solid", fgColor="FEF3C7")
+BREAK_FILL = PatternFill("solid", fgColor="FEF3C7")
 SUBHEADER_FILL = PatternFill("solid", fgColor="F1F5F9")
 THIN = Side(style="thin", color="CBD5E1")
 BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
@@ -91,7 +92,7 @@ def merge_row(ws, row, col_start, col_end, value, font=None, fill=None, align=No
     return cell
 
 
-def build_schedule_sheet(wb, sections):
+def build_schedule_sheet(wb, state):
     ws = wb.create_sheet("Schedule")
     total_cols = 1 + 4 * len(ROOMS)
 
@@ -102,9 +103,7 @@ def build_schedule_sheet(wb, sections):
               font=Font(italic=True, size=10, color="64748B"))
 
     row = 4
-    name_ranges = []  # (column_letter, first_row, last_row) for data validation
-
-    sections_by_key = {(s["day"]["date"], s["block"], s["room"]): s["students"] for s in sections}
+    name_ranges = []
 
     for day in DAYS:
         row += 1
@@ -112,12 +111,15 @@ def build_schedule_sheet(wb, sections):
                   font=Font(bold=True, size=13, color="FFFFFF"), fill=DAY_FILL)
         row += 1
 
-        for block in BLOCKS:
-            merge_row(ws, row, 1, total_cols, BLOCK_LABELS[block],
+        for code in day["block_codes"]:
+            block = BLOCK_BY_CODE[code]
+            start_label = datetime.strptime(block["start"], "%H:%M").strftime("%-I:%M %p")
+            end_label = datetime.strptime(block["end"], "%H:%M").strftime("%-I:%M %p")
+            label = f"Block {code} ({start_label} – {end_label})"
+            merge_row(ws, row, 1, total_cols, label,
                       font=Font(bold=True, size=11, color="1E293B"), fill=BLOCK_FILL)
             row += 1
 
-            # Room header row (merged over each room's 4 columns)
             ws.cell(row=row, column=1, value="Time").font = Font(bold=True)
             ws.cell(row=row, column=1).fill = SUBHEADER_FILL
             for room in ROOMS:
@@ -126,18 +128,17 @@ def build_schedule_sheet(wb, sections):
                           font=Font(bold=True, color="FFFFFF"), fill=HEADER_FILL)
             row += 1
 
-            # Sub-header row
             for room in ROOMS:
                 start_col = ROOM_COL_START[room]
-                for j, label in enumerate(SUBHEADERS):
-                    c = ws.cell(row=row, column=start_col + j, value=label)
+                for j, sub_label in enumerate(SUBHEADERS):
+                    c = ws.cell(row=row, column=start_col + j, value=sub_label)
                     c.font = Font(bold=True, size=9)
                     c.fill = SUBHEADER_FILL
                     c.alignment = Alignment(horizontal="center")
             row += 1
 
-            capacity = SECTION_CAPACITY[block]
-            times = slot_times(block, capacity)
+            capacity = block["cap"]
+            times = slot_times(block["start"], capacity)
             first_data_row = row
 
             for i in range(capacity):
@@ -146,7 +147,7 @@ def build_schedule_sheet(wb, sections):
                 for room in ROOMS:
                     start_col = ROOM_COL_START[room]
                     name_col_letter = get_column_letter(start_col)
-                    roster_here = sections_by_key.get((day["date"], block, room), [])
+                    roster_here = state[code][room]
                     prefill = roster_here[i]["full_name"] if i < len(roster_here) else ""
                     name_cell = ws.cell(row=row, column=start_col, value=prefill)
                     name_cell.border = BORDER
@@ -163,7 +164,6 @@ def build_schedule_sheet(wb, sections):
                         c.border = BORDER
                         c.alignment = Alignment(wrap_text=True, vertical="center")
                         c.font = Font(size=9)
-                    title_cell.alignment = Alignment(wrap_text=True, vertical="center")
                 row += 1
 
             last_data_row = row - 1
@@ -171,22 +171,20 @@ def build_schedule_sheet(wb, sections):
                 name_col_letter = get_column_letter(ROOM_COL_START[room])
                 name_ranges.append((name_col_letter, first_data_row, last_data_row))
 
-            if block == "AM":
-                merge_row(ws, row, 1, total_cols, LUNCH_LABEL,
-                          font=Font(bold=True, italic=True, color="92400E"), fill=LUNCH_FILL)
+            if code in BREAK_AFTER:
+                merge_row(ws, row, 1, total_cols, BREAK_AFTER[code],
+                          font=Font(bold=True, italic=True, color="92400E"), fill=BREAK_FILL)
                 row += 1
         row += 1  # gap between days
 
-    # Column widths
     ws.column_dimensions["A"].width = 20
     for room in ROOMS:
         start_col = ROOM_COL_START[room]
-        ws.column_dimensions[get_column_letter(start_col)].width = 22      # Name
-        ws.column_dimensions[get_column_letter(start_col + 1)].width = 15  # Field
-        ws.column_dimensions[get_column_letter(start_col + 2)].width = 42  # Title
-        ws.column_dimensions[get_column_letter(start_col + 3)].width = 22  # Mentor
+        ws.column_dimensions[get_column_letter(start_col)].width = 22
+        ws.column_dimensions[get_column_letter(start_col + 1)].width = 15
+        ws.column_dimensions[get_column_letter(start_col + 2)].width = 42
+        ws.column_dimensions[get_column_letter(start_col + 3)].width = 22
 
-    # Dropdown of valid names on every Name cell, sourced from Data sheet.
     num_students = ws.parent["Data"].max_row - 1
     dv = DataValidation(type="list", formula1=f"=Data!$A$2:$A${num_students + 1}",
                          allow_blank=True, showDropDown=False)
@@ -194,8 +192,6 @@ def build_schedule_sheet(wb, sections):
     for col_letter, first_row, last_row in name_ranges:
         dv.add(f"{col_letter}{first_row}:{col_letter}{last_row}")
 
-    # Conditional formatting: color each Field cell by subject, across the
-    # whole sheet, so it stays correct even after edits.
     field_cols = [get_column_letter(ROOM_COL_START[room] + 1) for room in ROOMS]
     max_row = row + 5
     for field_name, (bg, fg) in FIELD_COLORS_HEX.items():
@@ -213,19 +209,31 @@ def build_schedule_sheet(wb, sections):
 
 def main():
     students = load_roster()
-    field_blocks = build_mentor_blocks(students)
-    used_sections, unused_sections = pack(field_blocks)
+    state, warnings = pack(students)
 
     wb = Workbook()
     n = build_data_sheet(wb, students)
-    build_schedule_sheet(wb, used_sections)
+    build_schedule_sheet(wb, state)
 
     wb.save(OUT_PATH)
-    print(f"Wrote {OUT_PATH} ({n} students, {len(used_sections)} sections)")
-    if unused_sections:
-        print(f"{len(unused_sections)} sections left empty in the draft:")
-        for s in unused_sections:
-            print(f"  {s['day']['label']} {s['block']} {s['room']}")
+    print(f"Wrote {OUT_PATH} ({n} students)")
+
+    placed = sum(len(state[b["code"]][room]) for b in BLOCKS for room in ROOMS)
+    print(f"Placed {placed}/{n} students.")
+    print("\nBlock sizes:")
+    for b in BLOCKS:
+        code = b["code"]
+        for room in ROOMS:
+            count = len(state[code][room])
+            fields = sorted(set(s["field"] for s in state[code][room]))
+            print(f"  {code} {room}: {count}/{b['cap']} -- {', '.join(fields)}")
+    if warnings:
+        print(f"\n{len(warnings)} WARNING(S):")
+        for w in warnings:
+            print(f"  {w}")
+    if placed < n:
+        unplaced = n - placed
+        print(f"\nWARNING: {unplaced} student(s) were not placed anywhere -- check capacity.")
 
 
 if __name__ == "__main__":
