@@ -13,10 +13,10 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T1,32-141,10:20 AM,10:36 AM,6,Siddhi Kochar,Constraints on Cosmic Reionization and the Thomson Optical Depth via the Population III.1 Flash Model,Dr. James Sullivan,Astronomy & Planetary Science
 2026-08-06,Thursday,T1,32-155,9:00 AM,9:16 AM,1,Anushka Tonapi,On Counting Prime Solutions to Quadratic Forms via the Hardy-Littlewood Circle Method,Siqi Wu,Math
 2026-08-06,Thursday,T1,32-155,9:16 AM,9:32 AM,2,Grisham Paimagam,Sphere Packing on Grassmannians,Siqi Wu,Math
-2026-08-06,Thursday,T1,32-155,9:32 AM,9:48 AM,3,Katrina Liu,Temporal Preferential Attachment Trees,Hang Du,Math
-2026-08-06,Thursday,T1,32-155,9:48 AM,10:04 AM,4,Lincoln Liu,Heat Evolution on Graphs,Alexander McWeeney,Math
+2026-08-06,Thursday,T1,32-155,9:32 AM,9:48 AM,3,Sirius Sun,Critical Groups of Signed Subdivided Wheels,Ryota Inagaki,Math
+2026-08-06,Thursday,T1,32-155,9:48 AM,10:04 AM,4,Michael Luo,Resolving a Conjecture on Stack-Sorting,Ryota Inagaki,Math
 2026-08-06,Thursday,T1,32-155,10:04 AM,10:20 AM,5,Tony Lu,Asymptotics for Curve Shortening Flow with Boundary,Alexander McWeeney,Math
-2026-08-06,Thursday,T1,32-155,10:20 AM,10:36 AM,6,Michael Luo,Resolving a Conjecture on Stack-Sorting,Ryota Inagaki,Math
+2026-08-06,Thursday,T1,32-155,10:20 AM,10:36 AM,6,Lincoln Liu,Heat Evolution on Graphs,Alexander McWeeney,Math
 2026-08-06,Thursday,T2,32-124,11:00 AM,11:16 AM,1,Eason Turner,Searching for Eclipses in X-Ray Sources,Dr. Rosanne Di Stefano,Astronomy & Planetary Science
 2026-08-06,Thursday,T2,32-124,11:16 AM,11:32 AM,2,Miguel Shim,Information Flow in Self Organizing Systems,Ashu Tripathi,Physics
 2026-08-06,Thursday,T2,32-124,11:32 AM,11:48 AM,3,Sylvia Lee,Life is a Game: Learning Dynamical Systems with Neural Cellular Automata,Ashu Tripathi,Physics
@@ -29,7 +29,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T2,32-141,11:48 AM,12:04 PM,4,Asher Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,Dr. Howard Chen,Physics
 2026-08-06,Thursday,T2,32-141,12:04 PM,12:20 PM,5,Rishi Pampati,Functional Neural Connectivity During Inactivation of the Anterior Insula in Fentanyl-Administered Rats,Dr. Sarah Bricault,Neuroscience & Psychology
 2026-08-06,Thursday,T2,32-141,12:20 PM,12:36 PM,6,Shaden Alharbi,Characterization of Nanobody Binding to HIV-1 Capsid-Like Particles via Biolayer Interferometry,Dr. Ky Lowenhaupt,Biology & Medicine
-2026-08-06,Thursday,T2,32-155,11:00 AM,11:16 AM,1,Sirius Sun,Critical Groups of Signed Subdivided Wheels,Ryota Inagaki,Math
+2026-08-06,Thursday,T2,32-155,11:00 AM,11:16 AM,1,Katrina Liu,Temporal Preferential Attachment Trees,Hang Du,Math
 2026-08-06,Thursday,T2,32-155,11:16 AM,11:32 AM,2,Nikola Veselinov,On Supersingular Isogeny Graphs of Drinfeld Modules,Ayan Nath,Math
 2026-08-06,Thursday,T2,32-155,11:32 AM,11:48 AM,3,Timothy Chen,Open Cases of the Colmez Conjecture,Ayan Nath,Math
 2026-08-06,Thursday,T2,32-155,11:48 AM,12:04 PM,4,Jay Athipatla,DC-MTNN: A Drug-Conditioned Multi-Task Neural Network for Predicting Drug Resistance in Mycobacterium tuberculosis Using Genomic Data,Dr. Sean Carroll,Math
