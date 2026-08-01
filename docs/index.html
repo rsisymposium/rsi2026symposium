@@ -27,6 +27,8 @@
     <!-- Header -->
     <header class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <img src="rsi_logo.png" alt="RSI 2026 Symposium logo" class="mx-auto mb-4 h-16 w-auto"
+                 onerror="this.style.display='none'">
             <h1 class="text-4xl font-bold tracking-tight text-slate-900">Research Science Institute Symposium 2026</h1>
             <p class="mt-2 text-slate-500" id="header-dates">Thursday, August 6 &amp; Friday, August 7, 2026</p>
         </div>
@@ -36,10 +38,39 @@
     <main class="py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+            <!-- Block/Room Overview Table -->
+            <div class="mb-10">
+                <h2 class="text-lg font-semibold text-slate-800 mb-3 text-center">Blocks &amp; Rooms at a Glance</h2>
+                <div class="overflow-x-auto rounded-lg shadow-sm ring-1 ring-slate-200">
+                    <table class="min-w-full bg-white text-sm" id="overview-table">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-600">Block</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-600">Time</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-600">Room 32-124</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-600">Room 32-141</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-600">Room 32-155</th>
+                            </tr>
+                        </thead>
+                        <tbody id="overview-table-body" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+            </div>
+
             <!-- Navigation / Filters -->
             <div class="sticky top-0 bg-slate-50/90 backdrop-blur-lg py-4 z-10 mb-8 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6">
                 <div class="flex flex-col items-center gap-2">
-                    <label for="session-select" class="text-sm font-medium text-slate-700">Jump to Session</label>
+                    <label for="search-input" class="text-sm font-medium text-slate-700">Search</label>
+                    <div class="relative w-full max-w-xs sm:w-72">
+                        <input type="text" id="search-input" placeholder="Search name, title, or mentor..."
+                               class="block w-full bg-white border border-slate-300 text-slate-700 py-3 pl-4 pr-9 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 shadow-sm transition">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
+                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <label for="session-select" class="text-sm font-medium text-slate-700">Filter by Session</label>
                     <div class="relative w-full max-w-xs sm:w-56">
                         <select id="session-select" class="block w-full appearance-none bg-white border border-slate-300 text-slate-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 shadow-sm transition"></select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-700">
@@ -75,7 +106,7 @@
                 </div>
                 <div id="no-results-message" class="hidden text-center py-16">
                     <p class="text-lg font-medium text-slate-600">No presentations match the current filters.</p>
-                    <p class="text-sm text-slate-500">Try selecting "All Mentors" / "All Fields".</p>
+                    <p class="text-sm text-slate-500">Try clearing the search box, or selecting "All Sessions" / "All Mentors" / "All Fields".</p>
                 </div>
             </div>
         </div>
@@ -119,6 +150,17 @@
             ],
         };
 
+        // Room -> single-letter suffix, so each room-block gets a short code
+        // like "T1A" (Thursday, Block 1, Room 32-124). Order here also sets
+        // the overview table's column order.
+        const ROOM_LETTERS = { '32-124': 'A', '32-141': 'B', '32-155': 'C' };
+        const ROOM_ORDER = ['32-124', '32-141', '32-155'];
+
+        /** "T1" + "32-124" -> "T1A" */
+        function roomBlockCode(blockCode, room) {
+            return `${blockCode}${ROOM_LETTERS[room] || '?'}`;
+        }
+
         // Consistent color per field so the same subject reads the same
         // way everywhere on the page.
         const FIELD_COLORS = {
@@ -138,7 +180,10 @@
         // ============================================================
         // SCRIPT
         // ============================================================
-        document.addEventListener('DOMContentLoaded', loadScheduleData);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderOverviewTable();
+            loadScheduleData();
+        });
 
         async function loadScheduleData() {
             const scheduleContainer = document.getElementById('schedule-container');
@@ -159,7 +204,7 @@
                 const days = groupTalks(talks);
 
                 loadingState.style.display = 'none';
-                renderSessionNav(days);
+                renderSessionFilter(days);
                 renderMentorFilter(talks);
                 renderFieldFilter(talks);
                 renderSchedule(days, scheduleContainer);
@@ -233,28 +278,54 @@
             return `session-${date}-${block}-${room}`.replace(/[^a-zA-Z0-9-]/g, '_');
         }
 
-        function renderSessionNav(days) {
+        function renderSessionFilter(days) {
             const select = document.getElementById('session-select');
-            select.innerHTML = `<option value="">Go to a session...</option>`;
+            select.innerHTML = `<option value="all">All Sessions</option>`;
             Object.keys(days).sort().forEach(date => {
                 const { weekday, blocks } = days[date];
-                (BLOCKS_BY_DATE[date] || []).forEach(({ code, label }) => {
+                (BLOCKS_BY_DATE[date] || []).forEach(({ code }) => {
                     const roomMap = blocks[code] || {};
-                    Object.keys(roomMap).sort().forEach(room => {
-                        if (!roomMap[room].length) return;
+                    ROOM_ORDER.forEach(room => {
+                        if (!(roomMap[room] || []).length) return;
+                        const rbCode = roomBlockCode(code, room);
                         const option = document.createElement('option');
-                        option.value = `#${sessionId(date, code, room)}`;
-                        option.textContent = `${weekday} ${label} · Room ${room}`;
+                        option.value = rbCode;
+                        option.textContent = `${weekday} ${rbCode.slice(1)} - room ${room}`;
                         select.appendChild(option);
                     });
                 });
             });
-            select.addEventListener('change', (event) => {
-                const targetId = event.target.value;
-                if (targetId) {
-                    document.getElementById(targetId.substring(1))?.scrollIntoView({ behavior: 'smooth' });
-                    event.target.selectedIndex = 0;
-                }
+        }
+
+        function renderOverviewTable() {
+            const tbody = document.getElementById('overview-table-body');
+            const rows = [];
+            Object.keys(BLOCKS_BY_DATE).sort().forEach(date => {
+                BLOCKS_BY_DATE[date].forEach(({ code, time }) => {
+                    const weekday = date === '2026-08-06' ? 'Thursday' : 'Friday';
+                    const cells = ROOM_ORDER.map(room => {
+                        const rbCode = roomBlockCode(code, room);
+                        return `<td class="px-4 py-3">
+                            <button type="button" class="session-jump-btn inline-flex items-center rounded-md bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700 ring-1 ring-inset ring-indigo-200 hover:bg-indigo-100 transition" data-session="${rbCode}">${rbCode}</button>
+                        </td>`;
+                    }).join('');
+                    rows.push(`
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-800">${weekday} ${code.slice(1)}</td>
+                            <td class="px-4 py-3 text-slate-500">${time}</td>
+                            ${cells}
+                        </tr>`);
+                });
+            });
+            tbody.innerHTML = rows.join('');
+
+            tbody.querySelectorAll('.session-jump-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const select = document.getElementById('session-select');
+                    select.value = btn.dataset.session;
+                    applyFilters();
+                    document.getElementById('schedule-container').scrollIntoView({ behavior: 'smooth' });
+                });
             });
         }
 
@@ -284,22 +355,28 @@
         }
 
         function wireFilters() {
+            document.getElementById('search-input').addEventListener('input', applyFilters);
+            document.getElementById('session-select').addEventListener('change', applyFilters);
             document.getElementById('mentor-select').addEventListener('change', applyFilters);
             document.getElementById('field-select').addEventListener('change', applyFilters);
         }
 
         function applyFilters() {
+            const searchVal = document.getElementById('search-input').value.trim().toLowerCase();
+            const sessionVal = document.getElementById('session-select').value;
             const mentorVal = document.getElementById('mentor-select').value;
             const fieldVal = document.getElementById('field-select').value;
             const noResultsMessage = document.getElementById('no-results-message');
             let totalVisible = 0;
 
             document.querySelectorAll('.room-block').forEach(roomBlock => {
+                const sessionMatch = sessionVal === 'all' || roomBlock.dataset.session === sessionVal;
                 let visibleInRoom = 0;
                 roomBlock.querySelectorAll('.presentation-card').forEach(card => {
                     const mentorMatch = mentorVal === 'all' || (card.dataset.mentor || '').includes(mentorVal);
                     const fieldMatch = fieldVal === 'all' || card.dataset.field === fieldVal;
-                    const visible = mentorMatch && fieldMatch;
+                    const searchMatch = !searchVal || card.textContent.toLowerCase().includes(searchVal);
+                    const visible = sessionMatch && mentorMatch && fieldMatch && searchMatch;
                     card.style.display = visible ? 'flex' : 'none';
                     if (visible) visibleInRoom++;
                 });
@@ -345,11 +422,13 @@
 
         function roomBlockHTML(date, block, room, talks) {
             if (!talks || !talks.length) return '';
+            const rbCode = roomBlockCode(block, room);
             return `
-                <div class="room-block mb-10" id="${sessionId(date, block, room)}">
+                <div class="room-block mb-10" id="${sessionId(date, block, room)}" data-session="${rbCode}">
                     <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
                         <svg class="w-5 h-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
                         Room ${room}
+                        <span class="text-sm font-normal text-slate-400">· ${rbCode}</span>
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         ${talks.map(talkCard).join('')}
