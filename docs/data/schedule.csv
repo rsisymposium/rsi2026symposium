@@ -21,21 +21,21 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T2,32-124,11:16 AM,11:32 AM,2,Miguel Shim,Information Flow in Self Organizing Systems,Ashu Tripathi,Physics
 2026-08-06,Thursday,T2,32-124,11:32 AM,11:48 AM,3,Sylvia Lee,Life is a Game: Learning Dynamical Systems with Neural Cellular Automata,Ashu Tripathi,Physics
 2026-08-06,Thursday,T2,32-124,11:48 AM,12:04 PM,4,Pavan Subramani,The computational conversion of a singular apo structure to an ensemble of holo structures for more accurate molecular docking,Dr. Mrinal Shekhar,Chemistry & Materials
-2026-08-06,Thursday,T2,32-124,12:04 PM,12:20 PM,5,Cassidy Stocker,Effect of ZAP70 Mutations on CAR T-Cell Effectiveness Targeting GD2 in Brain Tumors,Dr. Robbie G. Majzner,Biology & Medicine
+2026-08-06,Thursday,T2,32-124,12:04 PM,12:20 PM,5,Cassidy Stocker,Effect of ZAP70 Mutations on CAR T-Cell Effectiveness Targeting GD2 in Brain Tumors and N6 Leukemia Cells,Dr. Robbie G. Majzner,Biology & Medicine
 2026-08-06,Thursday,T2,32-124,12:20 PM,12:36 PM,6,Sara Mitchell,Identifying Alternative Stimulatory Receptors for TCR-independent Activation of T-cells,Dr. Robbie G. Majzner,Biology & Medicine
 2026-08-06,Thursday,T2,32-141,11:00 AM,11:16 AM,1,Lluc Simon,Hybrid controls strategy for Automatic Laser Beam Alignment,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,T2,32-141,11:16 AM,11:32 AM,2,Mikołaj Stefaniak,Optical pulse shaping for quantum-enhanced clocks,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,T2,32-141,11:32 AM,11:48 AM,3,Mustafa Bakhodirov,Patient-Specific Modeling of Brain and Cerebrospinal Fluid Response to Rapid Head Acceleration in Chiari I Malformation,Prof. Francis Loth and Hannah Higgins,Engineering
-2026-08-06,Thursday,T2,32-141,11:48 AM,12:04 PM,4,Asher Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,Dr. Howard Chen,Physics
+2026-08-06,Thursday,T2,32-141,11:48 AM,12:04 PM,4,Asher Wang,Temporal Mapping of Doxorubicin-Induced Alterations in Autophagic Flux in hiPSC-Derived Cardiomyocytes,Dr. Howard Chen,Biology & Medicine
 2026-08-06,Thursday,T2,32-141,12:04 PM,12:20 PM,5,Rishi Pampati,Functional Neural Connectivity During Inactivation of the Anterior Insula in Fentanyl-Administered Rats,Dr. Sarah Bricault,Neuroscience & Psychology
 2026-08-06,Thursday,T2,32-141,12:20 PM,12:36 PM,6,Shaden Alharbi,Characterization of Nanobody Binding to HIV-1 Capsid-Like Particles via Biolayer Interferometry,Dr. Ky Lowenhaupt,Biology & Medicine
 2026-08-06,Thursday,T2,32-155,11:00 AM,11:16 AM,1,Katrina Liu,Temporal Preferential Attachment Trees,Hang Du,Math
 2026-08-06,Thursday,T2,32-155,11:16 AM,11:32 AM,2,Nikola Veselinov,On Supersingular Isogeny Graphs of Drinfeld Modules,Ayan Nath,Math
 2026-08-06,Thursday,T2,32-155,11:32 AM,11:48 AM,3,Timothy Chen,Open Cases of the Colmez Conjecture,Ayan Nath,Math
-2026-08-06,Thursday,T2,32-155,11:48 AM,12:04 PM,4,Jay Athipatla,DC-MTNN: A Drug-Conditioned Multi-Task Neural Network for Predicting Drug Resistance in Mycobacterium tuberculosis Using Genomic Data,Dr. Sean Carroll,Math
+2026-08-06,Thursday,T2,32-155,11:48 AM,12:04 PM,4,Jay Athipatla,Effective Computation of Free Resolutions and Cohomology for Quotients of Braid Groups,Dr. Sean Carroll,Math
 2026-08-06,Thursday,T2,32-155,12:04 PM,12:20 PM,5,Leyu Girma,Explicit Free Resolutions for Central Quotients of Cyclic Amalgams,Dr. Sean Carroll,Math
 2026-08-06,Thursday,T2,32-155,12:20 PM,12:36 PM,6,Riya Mehrotra,Simplified Volume Formulas for Tetrahedron by Edge-length Symmetry Class,Prof. Eric Grinberg,Math
-2026-08-06,Thursday,T3,32-124,1:15 PM,1:31 PM,1,Atharva Tyagi,Temporal Mapping of Doxorubicin-Induced Alterations in Autophagic Flux in hiPSC-Derived Cardiomyocytes,Prof. Pierre F.J Lermusiaux,Biology & Medicine
+2026-08-06,Thursday,T3,32-124,1:15 PM,1:31 PM,1,Atharva Tyagi,Navier–Stokes Characteristic Boundary Conditions for Limited-Area Numerical Weather Prediction,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T3,32-124,1:31 PM,1:47 PM,2,Ayush Vispute,Optimizing Quasi Geostrophic Flow Solving An Embedded Neural Network,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T3,32-124,1:47 PM,2:03 PM,3,Bryan Cho,Parametric study of regime transitions in quasi-turbulence,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T3,32-124,2:03 PM,2:19 PM,4,Claire Zhan,Efficient Patching for Generative Super Resolution of Turbulent Flow Fields,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
@@ -48,7 +48,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T3,32-141,2:19 PM,2:35 PM,5,Rohan Peddamallu,Neural CBF-based Safe RL for Robot Locomotion,Prof. Chuchu Fan,Computer Science & AI
 2026-08-06,Thursday,T3,32-141,2:35 PM,2:51 PM,6,Nabet El Hajjar,"Neighborhood Disadvantage, White Matter Development, and Child Outcomes: Evidence from the ABCD Study","Dr. Yogesh Rathi, Dr. Sinead Marie Kelly, Dr. Lipeng Ning",Neuroscience & Psychology
 2026-08-06,Thursday,T3,32-155,1:15 PM,1:31 PM,1,Tara Saini,Enumerating Index-Two and Index-Three Nilpotent Matrices in Symplectic Lie Algebras,Prof. Eric Grinberg,Math
-2026-08-06,Thursday,T3,32-155,1:31 PM,1:47 PM,2,Xindi Luo,Triangular Taxicabs,Prof. Eric Grinberg,Math
+2026-08-06,Thursday,T3,32-155,1:31 PM,1:47 PM,2,Xindi Luo,A Taxicab Journey to Triangle Centres,Prof. Eric Grinberg,Math
 2026-08-06,Thursday,T3,32-155,1:47 PM,2:03 PM,3,Greeshma Vinoy,APOE e4-Associated Microglial Transcriptional Signature Across Neurodegenerative Diseases,Dr. Sudeshna Das,Biology & Medicine
 2026-08-06,Thursday,T3,32-155,2:03 PM,2:19 PM,4,Sofia Passos,Predicted glycolytic reprogramming in a microglial substate across neurodegenerative diseases.,Dr. Sudeshna Das,Biology & Medicine
 2026-08-06,Thursday,T3,32-155,2:19 PM,2:35 PM,5,Can Nalbantoglu,Schrodinger Bridges for Graph Interpolations,Prof. Justin Solomon,Computer Science & AI
@@ -58,7 +58,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T4,32-124,3:47 PM,4:03 PM,3,Dhruv Jain,"Structure Analysis using Partial Grotrian Diagram Construction and Isotope-Shift Systematics of Pa I,II,IV,V and Statistical Synthesis of Comagnetometer Constants",Dr. Prajwal T. Mohan Murthy,Physics
 2026-08-06,Thursday,T4,32-124,4:03 PM,4:19 PM,4,Aaryan Patel,TailSeeker: Optimizing Molecular Structure Generation for Fibrodysplasia Ossificans Progressiva,Prof. Gil Alterovitz,Computer Science & AI
 2026-08-06,Thursday,T4,32-124,4:19 PM,4:35 PM,5,Andy Jo,Affine-Normalized Geometry of Protein Ensembles,Prof. Gil Alterovitz,Biology & Medicine
-2026-08-06,Thursday,T4,32-124,4:35 PM,4:51 PM,6,Jay Desai,Effective Computation of Free Resolutions and Cohomology for Quotients of Braid Groups,Prof. Gil Alterovitz,Math
+2026-08-06,Thursday,T4,32-124,4:35 PM,4:51 PM,6,Jay Desai,DC-MTNN: A Drug-Conditioned Multi-Task Neural Network for Predicting Drug Resistance in Mycobacterium tuberculosis Using Genomic Data,Prof. Gil Alterovitz,Math
 2026-08-06,Thursday,T4,32-141,3:15 PM,3:31 PM,1,Mahima Lele,Evaluating the FDA’s 510(k) Pathway for Approving AI/ML Medical Devices,Prof. Timothy Miller,Economics & Policy
 2026-08-06,Thursday,T4,32-141,3:31 PM,3:47 PM,2,Cooper Ho,Detecting Long-Transit Exoplanets via Better Detrending TESS Light Curves,Katharine Hesse,Astronomy & Planetary Science
 2026-08-06,Thursday,T4,32-141,3:47 PM,4:03 PM,3,Lillie Lin Li,Neptunian Ridge around faint stars,Katharine Hesse,Astronomy & Planetary Science
@@ -72,8 +72,8 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T4,32-155,4:19 PM,4:35 PM,5,Tristan Sun,Comorbidity-shaped cell states in Alzheimer’s disease: a single-nucleus dissection of 15 clinical phenotypes,Prof. Manolis Kellis,Biology & Medicine
 2026-08-06,Thursday,T4,32-155,4:35 PM,4:51 PM,6,Álvaro Daniel Villafuerte González,Towards Scaling Laws For Long-Horizon Software Engineering Agents,Prof. Manolis Kellis,Computer Science & AI
 2026-08-07,Friday,F1,32-124,9:00 AM,9:16 AM,1,Diya Gandhi,The Effect of Mergers on the Generic Drug Market,Dr. Aaron Kesselheim,Economics & Policy
-2026-08-07,Friday,F1,32-124,9:16 AM,9:32 AM,2,David Shi,The Grammar of Natural Systems: Compositional Material Design Across Scales,Prof. Markus Buehler,Chemistry & Materials
-2026-08-07,Friday,F1,32-124,9:32 AM,9:48 AM,3,David Wang,Predicting Peptide Self-Assembly Phase from LLM Extracted Experimental Conditions,Prof. Markus Buehler,Chemistry & Materials
+2026-08-07,Friday,F1,32-124,9:16 AM,9:32 AM,2,David Shi,Predicting Peptide Self-Assembly Phase from LLM Extracted Experimental Conditions,Prof. Markus Buehler,Chemistry & Materials
+2026-08-07,Friday,F1,32-124,9:32 AM,9:48 AM,3,David Wang,The Grammar of Natural Systems: Compositional Material Design Across Scales,Prof. Markus Buehler,Chemistry & Materials
 2026-08-07,Friday,F1,32-124,9:48 AM,10:04 AM,4,Azaria Tsegaye,Observing Landau Levels in Simulated Strained Graphene,"Prof. Jenny Hoffman, Sarah Ziegler",Physics
 2026-08-07,Friday,F1,32-124,10:04 AM,10:20 AM,5,Yernar Doskhan,Vibration Mitigation for Atomic-Resolution Imaging in Scanning Four-Probe Microscopy,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:20 AM,10:36 AM,6,Haya Mekdash,Development of a novel assay to measure radiation sensitivity of tumor cells,Dr. David T. Miyamoto,Biology & Medicine
@@ -97,5 +97,5 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F2,32-141,11:16 AM,11:32 AM,2,Dex Theisen,Understanding the Influence of Receptor Transport on Nanoparticle-Cell-Membrane Interactions,"Prof. Maggie Qi, Shu Yang",Chemistry & Materials
 2026-08-07,Friday,F2,32-141,11:32 AM,11:48 AM,3,Karl Chu,Evaluating Dyadic Foraging Optimization Through the Marginal Value Theorem,Prof. Jeremy Wolfe,Neuroscience & Psychology
 2026-08-07,Friday,F2,32-141,11:48 AM,12:04 PM,4,Selene Manzo,Frog Search: A New Way to Measure Guidance by Color in Visual Search,Prof. Jeremy Wolfe,Neuroscience & Psychology
-2026-08-07,Friday,F2,32-155,11:00 AM,11:16 AM,1,Avery Wang,Navier–Stokes Characteristic Boundary Conditions for Limited-Area Numerical Weather Prediction,"Prof. Peter Lu, Oreoluwa Alao","Earth, Ocean & Climate"
+2026-08-07,Friday,F2,32-155,11:00 AM,11:16 AM,1,Avery Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,"Prof. Peter Lu, Oreoluwa Alao",Physics
 2026-08-07,Friday,F2,32-155,11:16 AM,11:32 AM,2,Ngawang Namgyal,W-Flow: Continuous-variable Quantum State Tomography via Flow-based Generative Modeling,"Prof. Peter Lu, Oreoluwa Alao",Physics
