@@ -7,7 +7,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T1,32-124,10:20 AM,10:36 AM,6,Kai Xuen Toh,Detecting Life in the Clouds: The Feasibility of Using UV Phase Delay Sensing on Venus,Prof. Sara Seager,Astronomy & Planetary Science
 2026-08-06,Thursday,T1,32-141,9:00 AM,9:16 AM,1,Mahi Kohli,Worming Our Way Out: Analyzing How Developmental Exposure to UNC-31 Degradation and TIR1 affect brain dynamics of C. elegans,Prof. Vivek Venkatachalam,Biology & Medicine
 2026-08-06,Thursday,T1,32-141,9:16 AM,9:32 AM,2,Alejandra Stephanie Perry,Critical Windows for Neuromodulatory Recovery: Reversible UNC-31 Depletion in Caenorhabditis elegans Development,Prof. Vivek Venkatachalam,Biology & Medicine
-2026-08-06,Thursday,T1,32-141,9:32 AM,9:48 AM,3,Ferris Li,Building a Machine Learning Model to Track Many C. elegans Worms Simultaneously and Resolve Collisions,Prof. Vivek Venkatachalam,Computer Science & AI
+2026-08-06,Thursday,T1,32-141,9:32 AM,9:48 AM,3,Ferris Li,Building a Machine Learning Model to Resolve C. elegans Collisions,Prof. Vivek Venkatachalam,Computer Science & AI
 2026-08-06,Thursday,T1,32-141,9:48 AM,10:04 AM,4,Benson Hsueh,The Center Configuration Problem for Single-Robot Reconfiguration,Timothy Gomez,Computer Science & AI
 2026-08-06,Thursday,T1,32-141,10:04 AM,10:20 AM,5,Matey Minev,Before the Final Assembly: Temporal Leakage and Process Privacy in Covert Tile Automata,Timothy Gomez,Computer Science & AI
 2026-08-06,Thursday,T1,32-141,10:20 AM,10:36 AM,6,Siddhi Kochar,Constraints on Cosmic Reionization and the Thomson Optical Depth via the Population III.1 Flash Model,Dr. James Sullivan,Astronomy & Planetary Science
@@ -53,7 +53,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T3,32-155,2:03 PM,2:19 PM,4,Sofia Passos,Predicted glycolytic reprogramming in a microglial substate across neurodegenerative diseases.,Dr. Sudeshna Das,Biology & Medicine
 2026-08-06,Thursday,T3,32-155,2:19 PM,2:35 PM,5,Can Nalbantoglu,Sinkhorn Schrödinger Bridges for Graph Interpolations,Prof. Justin Solomon,Computer Science & AI
 2026-08-06,Thursday,T3,32-155,2:35 PM,2:51 PM,6,Daniel Guo,Improving the Reliability of Hypersonic Airplane Engines Through Bleed Configurations,Prof. Wesley L. Harris,Engineering
-2026-08-06,Thursday,T4,32-124,3:15 PM,3:31 PM,1,Sophia Zhao,Reachability-Based Path Planning Across Autonomous Ocean Vehicles Platforms,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
+2026-08-06,Thursday,T4,32-124,3:15 PM,3:31 PM,1,Sophia Zhao,Reachability-Based Path Planning Across Autonomous Ocean Vehicle Platforms,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T4,32-124,3:31 PM,3:47 PM,2,Sarah Dingli,Computational and mathematical modeling of cellular dynamics in hydrogels to optimize large-scale bioprinting,Prof. Ron Weiss,Biology & Medicine
 2026-08-06,Thursday,T4,32-124,3:47 PM,4:03 PM,3,Dhruv Jain,"Structure Analysis using Partial Grotrian Diagram Construction and Isotope-Shift Systematics of Pa I,II,IV,V and Statistical Synthesis of Comagnetometer Constants",Dr. Prajwal T. Mohan Murthy,Physics
 2026-08-06,Thursday,T4,32-124,4:03 PM,4:19 PM,4,Aaryan Patel,TailSeeker: Optimizing Molecular Structure Generation for Fibrodysplasia Ossificans Progressiva,Prof. Gil Alterovitz,Computer Science & AI
@@ -98,4 +98,4 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F2,32-141,11:32 AM,11:48 AM,3,Karl Chu,Evaluating Dyadic Foraging Optimization Through the Marginal Value Theorem,Prof. Jeremy Wolfe,Neuroscience & Psychology
 2026-08-07,Friday,F2,32-141,11:48 AM,12:04 PM,4,Selene Manzo,Frog Search: A New Way to Measure Guidance by Color in Visual Search,Prof. Jeremy Wolfe,Neuroscience & Psychology
 2026-08-07,Friday,F2,32-155,11:00 AM,11:16 AM,1,Avery Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,"Prof. Peter Lu, Oreoluwa Alao",Physics
-2026-08-07,Friday,F2,32-155,11:16 AM,11:32 AM,2,Ngawang Namgyal,W-Flow: Continuous-variable Quantum State Tomography via Flow-based Generative Modeling,"Prof. Peter Lu, Oreoluwa Alao",Physics
+2026-08-07,Friday,F2,32-155,11:16 AM,11:32 AM,2,Ngawang Namgyal,W-Flow: Continuous-variable Quantum State Tomography via Flow-based Generative Modeling,"Prof. Peter Lu, Mateusz Zubrzycki",Physics
