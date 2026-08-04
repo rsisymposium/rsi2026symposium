@@ -2,7 +2,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T1,32-124,9:00 AM,9:16 AM,1,Mira Cakmak,Visualizing Neuropsychological Profiles in Patients with Alzheimer's Disease,Dr. Daniel Press and Dr. Hsueh-Sheng Chiang,Neuroscience & Psychology
 2026-08-06,Thursday,T1,32-124,9:16 AM,9:32 AM,2,Zephyr Larson,Understanding the Role of Radiative Feedbacks and Forcings in the Land-Sea Warming Contrast,Prof. Paul O'Gorman,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T1,32-124,9:32 AM,9:48 AM,3,Alejandro Mayorga,Liquid Foundation Models as Medical Assistants,Dr. Bo Wu,Computer Science & AI
-2026-08-06,Thursday,T1,32-124,9:48 AM,10:04 AM,4,Eric Buehler,Teaching a Medical Vision-Language Model with Automatic Feedback,Dr. Bo Wu,Computer Science & AI
+2026-08-06,Thursday,T1,32-124,9:48 AM,10:04 AM,4,Eric Buehler,Two-Stage Outcome-Based Reinforcement Learning for a Compact Medical Vision-Language Model,Dr. Bo Wu,Computer Science & AI
 2026-08-06,Thursday,T1,32-124,10:04 AM,10:20 AM,5,Layth Alzahrani,Crown–Root Segmentation in Dental CBCT Using Anatomically Guided Synthetic Annotation,Dr. Bo Wu,Computer Science & AI
 2026-08-06,Thursday,T1,32-124,10:20 AM,10:36 AM,6,Kai Xuen Toh,Detecting Life in the Clouds: The Feasibility of Using UV Phase Delay Sensing on Venus,Prof. Sara Seager,Astronomy & Planetary Science
 2026-08-06,Thursday,T1,32-141,9:00 AM,9:16 AM,1,Mahi Kohli,Worming Our Way Out: Analyzing How Developmental Exposure to UNC-31 Degradation and TIR1 affect brain dynamics of C. elegans,Prof. Vivek Venkatachalam,Biology & Medicine
@@ -47,11 +47,11 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T3,32-141,2:03 PM,2:19 PM,4,Namie Djaja,A Teleoperation System as a Data Engine for Learning System Dynamics,Prof. Chuchu Fan,Computer Science & AI
 2026-08-06,Thursday,T3,32-141,2:19 PM,2:35 PM,5,Rohan Peddamallu,Neural CBF-based Safe RL for Robot Locomotion,Prof. Chuchu Fan,Computer Science & AI
 2026-08-06,Thursday,T3,32-141,2:35 PM,2:51 PM,6,Nabet El Hajjar,"Neighborhood Disadvantage, White Matter Development, and Child Outcomes: Evidence from the ABCD Study","Dr. Yogesh Rathi, Dr. Sinead Marie Kelly, Dr. Lipeng Ning",Neuroscience & Psychology
-2026-08-06,Thursday,T3,32-155,1:15 PM,1:31 PM,1,Tara Saini,Enumerating Index-Two and Index-Three Nilpotent Matrices in Symplectic Lie Algebras,Prof. Eric Grinberg,Math
+2026-08-06,Thursday,T3,32-155,1:15 PM,1:31 PM,1,Tara Saini,Enumerating Nilpotent Matrices over Finite Fields,Prof. Eric Grinberg,Math
 2026-08-06,Thursday,T3,32-155,1:31 PM,1:47 PM,2,Xindi Luo,A Taxicab Journey to Triangle Centres,Prof. Eric Grinberg,Math
 2026-08-06,Thursday,T3,32-155,1:47 PM,2:03 PM,3,Greeshma Vinoy,APOE e4-Associated Microglial Transcriptional Signature Across Neurodegenerative Diseases,Dr. Sudeshna Das,Biology & Medicine
 2026-08-06,Thursday,T3,32-155,2:03 PM,2:19 PM,4,Sofia Passos,Predicted glycolytic reprogramming in a microglial substate across neurodegenerative diseases.,Dr. Sudeshna Das,Biology & Medicine
-2026-08-06,Thursday,T3,32-155,2:19 PM,2:35 PM,5,Can Nalbantoglu,Schrodinger Bridges for Graph Interpolations,Prof. Justin Solomon,Computer Science & AI
+2026-08-06,Thursday,T3,32-155,2:19 PM,2:35 PM,5,Can Nalbantoglu,Sinkhorn Schrödinger Bridges for Graph Interpolations,Prof. Justin Solomon,Computer Science & AI
 2026-08-06,Thursday,T3,32-155,2:35 PM,2:51 PM,6,Daniel Guo,Improving the Reliability of Hypersonic Airplane Engines Through Bleed Configurations,Prof. Wesley L. Harris,Engineering
 2026-08-06,Thursday,T4,32-124,3:15 PM,3:31 PM,1,Sophia Zhao,Reachability-Based Path Planning Across Autonomous Ocean Vehicles Platforms,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
 2026-08-06,Thursday,T4,32-124,3:31 PM,3:47 PM,2,Sarah Dingli,Computational and mathematical modeling of cellular dynamics in hydrogels to optimize large-scale bioprinting,Prof. Ron Weiss,Biology & Medicine
@@ -65,7 +65,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T4,32-141,4:03 PM,4:19 PM,4,Lara Otico,Evaluating the Efficacy of RAP-Mediated Steric Hinderance on LRP-1 to Inhibit TcdB Endocytosis and Limit C. difficile Pathogenesis,Prof. Min Dong,Biology & Medicine
 2026-08-06,Thursday,T4,32-141,4:19 PM,4:35 PM,5,Jordan Chong,Arsenic Leaching from Granular Activated Carbon Electrodes in Water Treatment,Dr. Muhammad Fahad Ehsan,Engineering
 2026-08-06,Thursday,T4,32-141,4:35 PM,4:51 PM,6,Amritha Praveen,Analyzing the Correlation of SBayesRC Calculated Weights for Polygenic Risk Scores and Body Mass Index,Dr. Buu Truong,Biology & Medicine
-2026-08-06,Thursday,T4,32-155,3:15 PM,3:31 PM,1,Alex Ren,Investigating cognitive decline in HIV,Prof. Manolis Kellis,Biology & Medicine
+2026-08-06,Thursday,T4,32-155,3:15 PM,3:31 PM,1,Alex Ren,Using Cell-Projected Phenotypes to study HIV induced cognitive decline,Prof. Manolis Kellis,Biology & Medicine
 2026-08-06,Thursday,T4,32-155,3:31 PM,3:47 PM,2,Amogh Dattatri,Dissecting the effects of non-coding genetic variation on neuropsychiatric disorder susceptibility,Prof. Manolis Kellis,Biology & Medicine
 2026-08-06,Thursday,T4,32-155,3:47 PM,4:03 PM,3,Chloe Giglio,Mapping the transcriptional and phenotypic heterogeneity of lung adenocarcinoma progression,Prof. Manolis Kellis,Biology & Medicine
 2026-08-06,Thursday,T4,32-155,4:03 PM,4:19 PM,4,Ipek Zeynioğlu,Efficient Binding Free Energy Estimation through Conformational Sampling of Intermediate States,Prof. Manolis Kellis,Chemistry & Materials
@@ -74,7 +74,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F1,32-124,9:00 AM,9:16 AM,1,Diya Gandhi,The Effect of Mergers on the Generic Drug Market,Dr. Aaron Kesselheim,Economics & Policy
 2026-08-07,Friday,F1,32-124,9:16 AM,9:32 AM,2,David Shi,Predicting Peptide Self-Assembly Phase from LLM Extracted Experimental Conditions,Prof. Markus Buehler,Chemistry & Materials
 2026-08-07,Friday,F1,32-124,9:32 AM,9:48 AM,3,David Wang,The Grammar of Natural Systems: Compositional Material Design Across Scales,Prof. Markus Buehler,Chemistry & Materials
-2026-08-07,Friday,F1,32-124,9:48 AM,10:04 AM,4,Azaria Tsegaye,Observing Landau Levels in Simulated Strained Graphene,"Prof. Jenny Hoffman, Sarah Ziegler",Physics
+2026-08-07,Friday,F1,32-124,9:48 AM,10:04 AM,4,Azaria Tsegaye,Observing Landau Levels in Simulated Strained Graphene,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:04 AM,10:20 AM,5,Yernar Doskhan,Vibration Mitigation for Atomic-Resolution Imaging in Scanning Four-Probe Microscopy,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:20 AM,10:36 AM,6,Haya Mekdash,Development of a novel assay to measure radiation sensitivity of tumor cells,Dr. David T. Miyamoto,Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:00 AM,9:16 AM,1,Abigail Qi,Optimization of a Yeast-Based High-Throughput Screening Platform to Identify PfPDEγ Inhibitor Candidates,Prof. Charles Hoffman,Biology & Medicine
