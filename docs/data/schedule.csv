@@ -25,7 +25,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T2,32-124,12:20 PM,12:36 PM,6,Sara Mitchell,Identifying Alternative Stimulatory Receptors for TCR-independent Activation of T-cells,Dr. Robbie G. Majzner,Biology & Medicine
 2026-08-06,Thursday,T2,32-141,11:00 AM,11:16 AM,1,Lluc Simon,Hybrid controls strategy for Automatic Laser Beam Alignment,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,T2,32-141,11:16 AM,11:32 AM,2,Mikołaj Stefaniak,Optical pulse shaping for quantum-enhanced clocks,Prof. Vladan Vuletic,Physics
-2026-08-06,Thursday,T2,32-141,11:32 AM,11:48 AM,3,Mustafa Bakhodirov,Patient-Specific Modeling of Brain and Cerebrospinal Fluid Response to Rapid Head Acceleration in Chiari I Malformation,Prof. Francis Loth and Hannah Higgins,Engineering
+2026-08-06,Thursday,T2,32-141,11:32 AM,11:48 AM,3,Mustafa Bakhodirov,Patient-Specific Modeling of Cerebrospinal Fluid Flow in Chiari I Malformation,Prof. Francis Loth and Hannah Higgins,Engineering
 2026-08-06,Thursday,T2,32-141,11:48 AM,12:04 PM,4,Asher Wang,Temporal Mapping of Doxorubicin-Induced Alterations in Autophagic Flux in hiPSC-Derived Cardiomyocytes,Dr. Howard Chen,Biology & Medicine
 2026-08-06,Thursday,T2,32-141,12:04 PM,12:20 PM,5,Rishi Pampati,Functional Neural Connectivity During Inactivation of the Anterior Insula in Fentanyl-Administered Rats,Dr. Sarah Bricault,Neuroscience & Psychology
 2026-08-06,Thursday,T2,32-141,12:20 PM,12:36 PM,6,Shaden Alharbi,Characterization of Nanobody Binding to HIV-1 Capsid-Like Particles via Biolayer Interferometry,Dr. Ky Lowenhaupt,Biology & Medicine
@@ -78,7 +78,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F1,32-124,10:04 AM,10:20 AM,5,Yernar Doskhan,Vibration Mitigation for Atomic-Resolution Imaging in Scanning Four-Probe Microscopy,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:20 AM,10:36 AM,6,Haya Mekdash,Development of a novel assay to measure radiation sensitivity of tumor cells,Dr. David T. Miyamoto,Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:00 AM,9:16 AM,1,Abigail Qi,Optimization of a Yeast-Based High-Throughput Screening Platform to Identify PfPDEγ Inhibitor Candidates,Prof. Charles Hoffman,Biology & Medicine
-2026-08-07,Friday,F1,32-141,9:16 AM,9:32 AM,2,Luke Itomura,Yeast-Based High-Throughput Screening for _Plasmodium falciparum_ PDEα Inhibitor Discovery,Prof. Charles Hoffman,Biology & Medicine
+2026-08-07,Friday,F1,32-141,9:16 AM,9:32 AM,2,Luke Itomura,A Fission Yeast High-Throughput Screen Identifies Candidate Small-Molecule Inhibitors of Plasmodium falciparum PDEα,Prof. Charles Hoffman,Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:32 AM,9:48 AM,3,Alexis Cho,Interactions of lipid droplets and Them1-containing condensates to regulate metabolism,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:48 AM,10:04 AM,4,Hannah Thomas,The Role of Them1 in Metabolic Gene Regulation,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 2026-08-07,Friday,F1,32-141,10:04 AM,10:20 AM,5,Logan Duran,Effects of material and surface chemistry in heat exchanger,Prof. Koroush Shirvan,Engineering
