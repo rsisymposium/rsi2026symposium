@@ -21,7 +21,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T2,32-124,11:15 AM,11:30 AM,2,Miguel Shim,Information Flow in Self Organizing Systems,Ashu Tripathi,Physics
 2026-08-06,Thursday,T2,32-124,11:30 AM,11:45 AM,3,Sylvia Lee,Life is a Game: Learning Dynamical Systems with Neural Cellular Automata,Ashu Tripathi,Physics
 2026-08-06,Thursday,T2,32-124,11:45 AM,12:00 PM,4,Pavan Subramani,The computational conversion of a singular apo structure to an ensemble of holo structures for more accurate molecular docking,Dr. Mrinal Shekhar,Chemistry & Materials
-2026-08-06,Thursday,T2,32-124,12:00 PM,12:15 PM,5,Cassidy Stocker,Effect of ZAP70 Mutations on CAR T-Cell Effectiveness Targeting GD2 in Brain Tumors and N6 Leukemia Cells,Dr. Robbie G. Majzner,Biology & Medicine
+2026-08-06,Thursday,T2,32-124,12:00 PM,12:15 PM,5,Cassidy Stocker,Effect of ZAP70 Mutations on CAR T-Cell effectiveness Targeting GD2 in Cancer Cells,Dr. Robbie G. Majzner,Biology & Medicine
 2026-08-06,Thursday,T2,32-124,12:15 PM,12:30 PM,6,Sara Mitchell,Identifying Alternative Stimulatory Receptors for TCR-independent Activation of T-cells,Dr. Robbie G. Majzner,Biology & Medicine
 2026-08-06,Thursday,T2,32-141,11:00 AM,11:15 AM,1,Lluc Simon,Hybrid controls strategy for Automatic Laser Beam Alignment,Prof. Vladan Vuletic,Physics
 2026-08-06,Thursday,T2,32-141,11:15 AM,11:30 AM,2,Mikołaj Stefaniak,Optical pulse shaping for quantum-enhanced clocks,Prof. Vladan Vuletic,Physics
@@ -98,4 +98,4 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F2,32-141,11:30 AM,11:45 AM,3,Karl Chu,Evaluating Dyadic Foraging Optimization Through the Marginal Value Theorem,Prof. Jeremy Wolfe,Neuroscience & Psychology
 2026-08-07,Friday,F2,32-141,11:45 AM,12:00 PM,4,Selene Manzo,Frog Search: A New Way to Measure Guidance by Color in Visual Search,Prof. Jeremy Wolfe,Neuroscience & Psychology
 2026-08-07,Friday,F2,32-155,11:00 AM,11:15 AM,1,Avery Wang,Sinusoidal Representation Networks for Neural Renormalization-Group Flows on the1D and 2D Ising Models,"Prof. Peter Lu, Oreoluwa Alao",Physics
-2026-08-07,Friday,F2,32-155,11:15 AM,11:30 AM,2,Ngawang Namgyal,W-Flow: Continuous-variable Quantum State Tomography via Flow-based Generative Modeling,"Prof. Peter Lu, Mateusz Zubrzycki",Physics
+2026-08-07,Friday,F2,32-155,11:15 AM,11:30 AM,2,Ngawang Namgyal,S-Flow: Harnessing Informed Sampling for Flow Models in Perturbation-Aware Quantum State Tomography,"Prof. Peter Lu, Mateusz Zubrzycki",Physics
