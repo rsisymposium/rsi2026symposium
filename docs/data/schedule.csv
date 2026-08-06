@@ -11,7 +11,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T1,32-141,9:45 AM,10:00 AM,4,Benson Hsueh,The Center Configuration Problem for Single-Robot Reconfiguration,Timothy Gomez,Computer Science & AI
 2026-08-06,Thursday,T1,32-141,10:00 AM,10:15 AM,5,Matey Minev,Before the Final Assembly: Temporal Leakage and Process Privacy in Covert Tile Automata,Timothy Gomez,Computer Science & AI
 2026-08-06,Thursday,T1,32-141,10:15 AM,10:30 AM,6,Siddhi Kochar,Constraints on Cosmic Reionization and the Thomson Optical Depth via the Population III.1 Flash Model,Dr. James Sullivan,Astronomy & Planetary Science
-2026-08-06,Thursday,T1,32-155,9:00 AM,9:15 AM,1,Anushka Tonapi,On Counting Prime Solutions to Quadratic Forms via the Hardy-Littlewood Circle Method,Siqi Wu,Math
+2026-08-06,Thursday,T1,32-155,9:00 AM,9:15 AM,1,Anushka Tonapi,Counting Prime Solutions to Quadratic Forms,Siqi Wu,Math
 2026-08-06,Thursday,T1,32-155,9:15 AM,9:30 AM,2,Grisham Paimagam,Sphere Packing on Grassmannians,Siqi Wu,Math
 2026-08-06,Thursday,T1,32-155,9:30 AM,9:45 AM,3,Sirius Sun,Critical Groups of Signed Subdivided Wheels,Ryota Inagaki,Math
 2026-08-06,Thursday,T1,32-155,9:45 AM,10:00 AM,4,Michael Luo,Resolving a Conjecture on Stack-Sorting,Ryota Inagaki,Math
@@ -54,7 +54,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-06,Thursday,T3,32-155,2:15 PM,2:30 PM,5,Can Nalbantoglu,Sinkhorn Schrödinger Bridges for Graph Interpolations,Prof. Justin Solomon,Computer Science & AI
 2026-08-06,Thursday,T3,32-155,2:30 PM,2:45 PM,6,Daniel Guo,Low-Reynolds-Number Porous Bleed for Separation Control on Hypersonic Airplanes,Prof. Wesley L. Harris,Engineering
 2026-08-06,Thursday,T4,32-124,3:15 PM,3:30 PM,1,Sophia Zhao,Reachability-Based Path Planning Across Autonomous Ocean Vehicle Platforms,Prof. Pierre F.J Lermusiaux,"Earth, Ocean & Climate"
-2026-08-06,Thursday,T4,32-124,3:30 PM,3:45 PM,2,Sarah Dingli,Computational and mathematical modeling of cellular dynamics in hydrogels to optimize large-scale bioprinting,Prof. Ron Weiss,Biology & Medicine
+2026-08-06,Thursday,T4,32-124,3:30 PM,3:45 PM,2,Sarah Dingli,Computational and Mathematical Modeling of Cellular Dynamics in Hydrogels to Optimize Large-Scale Bioprinting,Prof. Ron Weiss,Biology & Medicine
 2026-08-06,Thursday,T4,32-124,3:45 PM,4:00 PM,3,Dhruv Jain,Gyromagnetic Ratio and Protactinium Isotope-Shift Mapping for Electric Dipole Moment Searches,Dr. Prajwal T. Mohan Murthy,Physics
 2026-08-06,Thursday,T4,32-124,4:00 PM,4:15 PM,4,Aaryan Patel,TailSeeker: Optimizing Molecular Structure Generation for Fibrodysplasia Ossificans Progressiva,Prof. Gil Alterovitz,Computer Science & AI
 2026-08-06,Thursday,T4,32-124,4:15 PM,4:30 PM,5,Andy Jo,Affine-Normalized Geometry of Protein Ensembles,Prof. Gil Alterovitz,Biology & Medicine
@@ -77,7 +77,7 @@ date,weekday,block,room,start_time,end_time,order,full_name,title,mentor,field
 2026-08-07,Friday,F1,32-124,9:45 AM,10:00 AM,4,Azaria Tsegaye,Observing Landau Levels in Simulated Strained Graphene,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:00 AM,10:15 AM,5,Yernar Doskhan,Vibration Mitigation for Atomic-Resolution Imaging in Scanning Four-Probe Microscopy,Prof. Jenny Hoffman,Physics
 2026-08-07,Friday,F1,32-124,10:15 AM,10:30 AM,6,Haya Mekdash,Development of a novel assay to measure radiation sensitivity of tumor cells,Dr. David T. Miyamoto,Biology & Medicine
-2026-08-07,Friday,F1,32-141,9:00 AM,9:15 AM,1,Abigail Qi,Optimization of a Yeast-Based High-Throughput Screening Platform to Identify PfPDEγ Inhibitor Candidates,Prof. Charles Hoffman,Biology & Medicine
+2026-08-07,Friday,F1,32-141,9:00 AM,9:15 AM,1,Abigail Qi,Optimization of a Yeast-Based High-Throughput Screening Platform to Detect Small-Molecule Modulators of PfPDE𝛄  for Antimalarial Drug Discovery,Prof. Charles Hoffman,Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:15 AM,9:30 AM,2,Luke Itomura,A Fission Yeast High-Throughput Screen Identifies Candidate Small-Molecule Inhibitors of Plasmodium falciparum PDEα,Prof. Charles Hoffman,Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:30 AM,9:45 AM,3,Alexis Cho,Interactions of lipid droplets and Them1-containing condensates to regulate metabolism,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
 2026-08-07,Friday,F1,32-141,9:45 AM,10:00 AM,4,Hannah Thomas,The Role of Them1 in Metabolic Gene Regulation,"Prof. Susan Hagen, Dr. Xu Xu",Biology & Medicine
